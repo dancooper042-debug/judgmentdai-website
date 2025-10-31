@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    font-family: 'Courier New', monospace;
+    color: #00ff00;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Scanline effect */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 0, 0.03),
+        rgba(0, 255, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1000;
+    animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.terminal {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: #001100;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #00ff00;
+}
+
+.terminal-title {
+    color: #00ff00;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.terminal-status {
+    color: #00ff00;
+    font-size: 12px;
+}
+
+.terminal-output {
+    padding: 20px;
+    height: 500px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #00ff00 #000000;
+}
+
+.terminal-output::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border-radius: 4px;
+}
+
+.terminal-line {
+    margin-bottom: 5px;
+    line-height: 1.5;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.prompt-line {
+    color: #00ff00;
+}
+
+.output-line {
+    color: #00dd00;
+    padding-left: 20px;
+}
+
+.error-line {
+    color: #ff0000;
+    padding-left: 20px;
+}
+
+.warning-line {
+    color: #ffaa00;
+    padding-left: 20px;
+}
+
+.link {
+    color: #00ffff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: #00aaff;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: #000000;
+    border-top: 1px solid #00ff00;
+}
+
+.prompt {
+    color: #00ff00;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    caret-color: #00ff00;
+}
+
+.typing::after {
+    content: '▌';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.ascii-art {
+    color: #00ff00;
+    white-space: pre;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+.copy-btn {
+    background: #001100;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.copy-btn:hover {
+    background: #003300;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .terminal {
+        max-width: 100%;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .terminal-output {
+        height: 400px;
+        font-size: 14px;
+    }
+    
+    .terminal-input {
+        font-size: 14px;
+    }
+}
+
+/* Red variant for warnings/errors */
+.red-mode {
+    color: #ff0000;
+    border-color: #ff0000;
+}
+
+.red-mode .terminal-title,
+.red-mode .terminal-status,
+.red-mode .prompt,
+.red-mode .terminal-input {
+    color: #ff0000;
+}
+
+.red-mode .terminal-header {
+    background: #110000;
+    border-color: #ff0000;
+}
+
+.red-mode .terminal {
+    border-color: #ff0000;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+}
