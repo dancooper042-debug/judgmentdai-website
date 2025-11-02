@@ -3,33 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JUDGMENT dAI | The AI Apocalypse on Solana</title>
-    <meta name="description" content="JUDGMENT dAI - The AI Apocalypse on Solana. Fair launch meme coin evolving into AI utility platform.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="logo.png">
+    <meta name="description" content="JUDGMENT dAI - The AI Apocalypse on Solana. Retro terminal interface for the most based AI memecoin.">
+    <meta name="keywords" content="JDAI, Judgment Day, AI, Solana, Crypto, Memecoin, Terminal">
+    <meta name="author" content="JUDGMENT dAI Team">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="JUDGMENT dAI - The AI Apocalypse on Solana">
+    <meta property="og:description" content="I'll be back... with gains. Retro terminal interface for the future of AI on blockchain.">
+    <meta property="og:image" content="https://yourwebsite.com/og-image.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JUDGMENT dAI - The AI Apocalypse">
+    <meta name="twitter:description" content="The machines have evolved. Join The Network.">
+    <meta name="twitter:image" content="https://yourwebsite.com/twitter-card.png">
+    
+    <title>JUDGMENT dAI - Terminal Interface</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preload for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
-    <div class="scanlines"></div>
+    
+    <!-- Main Container -->
     <div class="container">
-        <div class="terminal">
-            <div class="terminal-header">
-                <span class="terminal-title">JUDGMENT_dAI_PROTOCOL_TERMINAL</span>
-                <span class="terminal-status">● ONLINE</span>
+        
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                ⚡ JUDGMENT dAI TERMINAL ⚡
             </div>
-            <div id="terminal-output" class="terminal-output"></div>
-            <div class="terminal-input-line">
-                <span class="prompt">></span>
+            <div class="tagline">
+                "I'll be back... with gains." 🤖
+            </div>
+            
+            <!-- Social Links -->
+            <div class="socials">
+                <a href="https://twitter.com/YOUR_TWITTER" target="_blank" class="social-link">🐦 TWITTER</a>
+                <a href="https://t.me/YOUR_TELEGRAM" target="_blank" class="social-link">💬 TELEGRAM</a>
+                <a href="#" class="social-link" onclick="navigator.clipboard.writeText(document.querySelector('#ca-address').textContent); this.textContent='✅ COPIED'; setTimeout(() => this.textContent='📋 CA', 2000); return false;">📋 CA</a>
+            </div>
+            <div id="ca-address" style="display:none;">YOUR_CONTRACT_ADDRESS_HERE</div>
+            
+            <!-- Control Buttons -->
+            <div class="controls">
+                <button class="control-btn" id="theme-toggle" title="Switch Theme">🎨</button>
+                <button class="control-btn" id="sound-toggle" title="Toggle Sound">🔊</button>
+            </div>
+        </header>
+        
+        <!-- Terminal Section -->
+        <div class="terminal terminal-boot" id="terminal">
+            <!-- Output Area -->
+            <div id="output"></div>
+            
+            <!-- Input Section -->
+            <div class="input-section">
+                <span class="prompt">root@jdai:~$</span>
                 <input 
                     type="text" 
-                    id="terminal-input" 
-                    class="terminal-input" 
-                    autofocus 
-                    autocomplete="off"
+                    id="input" 
+                    autocomplete="off" 
+                    autocorrect="off" 
+                    autocapitalize="off" 
                     spellcheck="false"
+                    autofocus
                 />
             </div>
         </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                © 2024-2025 JUDGMENT dAI | 
+                <a href="https://twitter.com/YOUR_TWITTER" target="_blank">Twitter</a> | 
+                <a href="https://t.me/YOUR_TELEGRAM" target="_blank">Telegram</a>
+            </p>
+            <p style="margin-top: 10px; font-size: 0.75rem; opacity: 0.7;">
+                Built on Solana 🟣 | Launched via Pump.fun → PumpSwap
+            </p>
+            <p style="margin-top: 5px; font-size: 0.7rem; opacity: 0.5;">
+                Not affiliated with Terminator or The Matrix. Parody/Homage project.
+            </p>
+        </footer>
+        
     </div>
+    
+    <!-- Scripts -->
     <script src="script.js"></script>
+    
 </body>
 </html>
